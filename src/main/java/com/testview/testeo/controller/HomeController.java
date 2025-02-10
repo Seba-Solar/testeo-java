@@ -10,4 +10,6 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/registro")
+    public String registro(){   return  "registro"; }
 }
