@@ -1,42 +1,66 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Landing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            background-image: url('https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png');
+        }
+        .pokemon-logo {
+            max-width: 300px;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
-    <h1 th:text="${mensaje}">Mensaje de Thymeleaf</h1>
-    <button><a href="/pokemon/llamarPokemon">Mostrar todos los pokemons</a></button>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png" alt="Pokémon Logo" class="pokemon-logo">
+        <h1 class="display-4 mb-3">Pokemon Java!</h1>
+    </div>
 
-    <form method="post" action="/pokemon/nombrePokemon">
-        <p>Ingresa el nombre de un pokemon</p>
-        <input placeholder="Ingresa el nombre de un pokemon" name="pokemon" id="pokemon">
-        <button type="submit">ENVIAR</button>
-    </form>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="card-header text-center">
-            Iniciar sesion
-        </div>
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body card text-center">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow">
+                <div class="card-header bg-danger text-white text-center">
+                    <h2 class="h4 mb-0">Iniciar sesion o registrarse</h2>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="/login" class="btn btn-primary btn-lg">Iniciar sesion</a>
+                        <a href="/registro" class="btn btn-success btn-lg">Registrarse</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card-footer text-center">
-            <a href="/registro" style="color: black">¡Registrate aqui!</a>
-        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow">
+                <div class="card-header bg-info text-white text-center">
+                    <h3 class="h5 mb-0">Busca un pokemon</h3>
+                </div>
+                <div class="card-body">
+                    <form method="get" action="/nombrePokemon" class="mb-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Ingresa el nombre de un pokemon" name="nombre" id="nombre" required>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </form>
+                    <div class="d-grid">
+                        <a href="/llamarPokemon" class="btn btn-outline-primary">Ve todos los pokemons</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
